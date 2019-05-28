@@ -9,11 +9,13 @@ public class InsertSort {
         int min = list[0];
         int buffer;
         for (int i = 1; i < len; i++) {
-            for (int j = 0; j < i; j++) {
-                if (list[j] > list[i]) {
+            for (int j = i; j > 0; j--) {
+                if (list[j] < list[j - 1]) {
                     buffer = list[j];
-                    list[j] = list[i];
-                    list[i] = buffer;
+                    list[j] = list[j - 1];
+                    list[j - 1] = buffer;
+                } else {
+                    break;
                 }
             }
         }
